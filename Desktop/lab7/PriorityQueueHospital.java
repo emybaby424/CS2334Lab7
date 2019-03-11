@@ -1,4 +1,50 @@
+/**
+ * Class representing the order the patients will be treated, unless the patients have a natural ordering
+ * the patients should be treated via QueueHospital ordering
+ *
+ * @author Emily
+ * @version 2019-03-09
+ * @param <PatientType> The generic type for the type of patient that the Hospital accepts.
+ */
+public class PriorityQueueHospital<PatientType extends Comparable<PatientType>> extends Hospital<PatientType>{
 
-public class PriorityQueueHospital {
+	@Override
+	public void addPatient(PatientType patient) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public PatientType nextPatient() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public PatientType treatNextPatient() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int numPatients() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String hospitalType() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String allPatientInfo() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+	
 
 }
