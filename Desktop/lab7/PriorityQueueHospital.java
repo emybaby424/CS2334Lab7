@@ -7,7 +7,9 @@
  * @param <PatientType> The generic type for the type of patient that the Hospital accepts.
  */
 public class PriorityQueueHospital<PatientType extends Comparable<PatientType>> extends Hospital<PatientType>{
-
+	/**
+	 * 
+	 */
 	@Override
 	public void addPatient(PatientType patient) {
 		// TODO Auto-generated method stub

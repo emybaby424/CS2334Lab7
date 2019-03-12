@@ -7,11 +7,16 @@ import java.util.Stack;
  * @param <PatientType> The generic type for the type of patient that the Hospital accepts.
  */
 public class StackHospital <PersonType> extends Hospital<PersonType>{
+	/**
+	 * a stack that will hold all the patients
+	 */
 	private Stack<PersonType> stack;
 	
+	/**
+	 * constructor creating a stack with a default size of 10
+	 */
 	public StackHospital() {
 		stack = new Stack<>(); 
-		
 	}
 	
 	/**
@@ -60,10 +65,15 @@ public class StackHospital <PersonType> extends Hospital<PersonType>{
 		return "" + stack.getClass();
 	}
 
+	/**
+	 * Prints all patient information.
+	 *
+	 * @return The toString of all patients
+	 */
 	@Override
 	public String allPatientInfo() {
 		
-		return null;
+		return stack.toString();
 	}
 
 }
