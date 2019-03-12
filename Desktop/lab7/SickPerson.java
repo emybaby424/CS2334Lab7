@@ -24,8 +24,8 @@ public class SickPerson extends Person{
 	 * 
 	 * @param p - The Person used to compare self with.
 	 * @return standard comparison result:
-	 * 	(1) self's name comes "before" o's name: negative number 
-	 * 	(2) self's name comes "after" p's name: positive number 
+	 * 	(1) self's severity comes "before" o's name: negative number 
+	 * 	(2) self's severity comes "after" p's name: positive number 
 	 * 	(3) names are equivalent: 0 i.e. the natural ordering of the name strings, ignoring case - orders alphabetically.
 	 */
 	@Override
@@ -55,7 +55,7 @@ public class SickPerson extends Person{
 	@Override
 	public String toString()
 	{
-		return String.format("%s, a %d-year old, seveirty %d.", this.getName(), this.getAge(), this.severity);
+		return String.format("%s Severity level %d", super.toString(), this.severity);
 	}
 }
 

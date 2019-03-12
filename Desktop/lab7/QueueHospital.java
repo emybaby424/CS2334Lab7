@@ -1,5 +1,4 @@
 import java.util.LinkedList;
-import java.util.Queue;
 
 /**
  * Class representing the order the patients will be treated, First in, First out
@@ -8,11 +7,11 @@ import java.util.Queue;
  * @version 2019-03-09
  * @param <PatientType> The generic type for the type of patient that the Hospital accepts.
  */
-public class QueueHospital <PersonType> extends Hospital<PersonType>{
+public class QueueHospital <PatientType> extends Hospital<PatientType>{
 	/**
 	 * a queue that contains the patients
 	 */
-	private Queue<PersonType> queue;
+	private LinkedList<PatientType> queue;
 	
 	/**
 	 * constructor that will create a queue with a default size of ten
@@ -24,7 +23,7 @@ public class QueueHospital <PersonType> extends Hospital<PersonType>{
 	 * take the patient and adds it to the last of the list
 	 */
 	@Override
-	public void addPatient(PersonType patient) {
+	public void addPatient(PatientType patient) {
 		queue.add(patient);
 	}
 	/**
@@ -32,9 +31,9 @@ public class QueueHospital <PersonType> extends Hospital<PersonType>{
 	 * @return the first item in the LinkedList, also casting it to PersonType
 	 */
 	@Override
-	public PersonType nextPatient() {
+	public PatientType nextPatient() {
 		
-		return ((LinkedList<PersonType>) queue).peekFirst();
+		return queue.peek();
 	}
 	
 	/**
@@ -42,7 +41,7 @@ public class QueueHospital <PersonType> extends Hospital<PersonType>{
 	 * @return the first item of the list
 	 */
 	@Override
-	public PersonType treatNextPatient() {
+	public PatientType treatNextPatient() {
 		
 		return queue.remove();
 	}
@@ -65,7 +64,7 @@ public class QueueHospital <PersonType> extends Hospital<PersonType>{
 	@Override
 	public String hospitalType() {
 		
-		return "" + queue.getClass();
+		return "QueueHospital";
 	}
 	
 	/**
@@ -75,8 +74,12 @@ public class QueueHospital <PersonType> extends Hospital<PersonType>{
 	 */
 	@Override
 	public String allPatientInfo() {
+		String patient = "";
 		
-		return queue.toString();
+		for (PatientType p : queue) {
+			patient += p.toString();
+		}
+		return patient;
 	}
 
 }

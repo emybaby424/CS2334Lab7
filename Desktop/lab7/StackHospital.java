@@ -6,11 +6,11 @@ import java.util.Stack;
  * @version 2019-03-09
  * @param <PatientType> The generic type for the type of patient that the Hospital accepts.
  */
-public class StackHospital <PersonType> extends Hospital<PersonType>{
+public class StackHospital <PatientType> extends Hospital<PatientType>{
 	/**
 	 * a stack that will hold all the patients
 	 */
-	private Stack<PersonType> stack;
+	private Stack<PatientType> stack;
 	
 	/**
 	 * constructor creating a stack with a default size of 10
@@ -23,7 +23,7 @@ public class StackHospital <PersonType> extends Hospital<PersonType>{
 	 * Pushes an item onto the top of this stack.
 	 */
 	@Override
-	public void addPatient(PersonType patient) {
+	public void addPatient(PatientType patient) {
 		stack.push(patient);
 		
 	}
@@ -33,7 +33,7 @@ public class StackHospital <PersonType> extends Hospital<PersonType>{
 	 * @return the top first item in the stack
 	 */
 	@Override
-	public PersonType nextPatient() {
+	public PatientType nextPatient() {
 		return stack.peek();
 	}
 	
@@ -42,7 +42,7 @@ public class StackHospital <PersonType> extends Hospital<PersonType>{
 	 * @return the top first item in the stack
 	 */
 	@Override
-	public PersonType treatNextPatient() {
+	public PatientType treatNextPatient() {
 		return stack.pop();
 	}
 	
@@ -62,7 +62,7 @@ public class StackHospital <PersonType> extends Hospital<PersonType>{
 	 */
 	@Override
 	public String hospitalType() {
-		return "" + stack.getClass();
+		return "StackHospital";
 	}
 
 	/**
@@ -72,8 +72,14 @@ public class StackHospital <PersonType> extends Hospital<PersonType>{
 	 */
 	@Override
 	public String allPatientInfo() {
-		
-		return stack.toString();
-	}
-
+	
+			String patient = "";
+			
+			for (PatientType p : stack) {
+				patient += p.toString();
+			}
+			return patient;
+		}
 }
+
+
