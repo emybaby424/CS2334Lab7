@@ -1,5 +1,4 @@
 import java.util.PriorityQueue;
-import java.util.Queue;
 
 /**
  * Class representing the order the patients will be treated, unless the patients have a natural ordering
@@ -9,11 +8,11 @@ import java.util.Queue;
  * @version 2019-03-09
  * @param <PatientType> The generic type for the type of patient that the Hospital accepts.
  */
-public class PriorityQueueHospital<PatientType extends Comparable<PatientType>> extends Hospital<PatientType>{
+public class PriorityQueueHospital<PatientType> extends Hospital<PatientType>{
 	/**
 	 * create a priority queue list to contain patients
 	 */
-	private Queue<PatientType> pq;
+	private PriorityQueue<PatientType> pq;
 	
 	/**
 	 * constructor initialize the priority queue list
@@ -68,7 +67,7 @@ public class PriorityQueueHospital<PatientType extends Comparable<PatientType>> 
 	@Override
 	public String hospitalType() {
 		
-		return "" + pq.getClass();
+		return "PriorityQueueHospital";
 	}
 	
 	/**
@@ -78,11 +77,12 @@ public class PriorityQueueHospital<PatientType extends Comparable<PatientType>> 
 	 */
 	@Override
 	public String allPatientInfo() {
-		
-		return pq.toString();
+			String patient = "";
+			
+			for (PatientType p : pq) {
+				patient += p.toString();
+			}
+			return patient;
+		}
 	}
 	
-
-	
-
-}
